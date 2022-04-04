@@ -11,15 +11,17 @@ function App() {
     fetch(githubDB.baseURL, {
       method: 'POST',
       headers: githubDB.headers,
-      body: JSON.stringify(githubQuery),
+      body: JSON.stringify(githubQuery()),
     })
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        const { name, repositories } = data.data.viewer;
+        const { name } = data.data.viewer;
+        const { edges } = data.data.search;
+        console.log(edges.map(({node}) => node.name ))
         setState({
           name: name,
-          repoList: repositories.nodes
+          repoList: edges
         });
       })
       .catch(err => {
@@ -37,10 +39,13 @@ function App() {
         <i className='bi bi-diagram-2-fill'></i>Repos
       </h1>
       <p>{state.name}</p>
-      <ul>
-        {state.repoList.map(({id, name, url}) => {
+      <ul className='list-group list-group-flush'>
+        {state.repoList && state.repoList.map(({node}) => {
           return (
-            <li key={id}>{name} - {url}</li>
+            <li key={node.id} className='list-group-item'>
+              <a href={node.url} className='h5 mb-0 text-decoration-none'>{node.name}</a>
+              {node.description && <p className="small">{node.description}</p>}
+            </li>
           )
         })}
       </ul>
