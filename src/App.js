@@ -3,6 +3,7 @@ import { githubDB } from './db';
 import { githubQuery } from './query';
 import RepoInfo from './components/RepoInfo';
 import SearchBar from './components/SearchBar';
+import RepoHeader from './components/RepoHeader';
 
 function App() {
   const [state, setState] = useState({
@@ -55,6 +56,7 @@ function App() {
         onCountChange={setPageCount}
         total={total}
       />
+      <RepoHeader />
       {repoList && (
         <ul className='list-group list-group-flush'>
           {repoList.map(list => {
