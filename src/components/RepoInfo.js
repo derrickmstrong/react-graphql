@@ -38,6 +38,7 @@ export default function RepoInfo({ repo }) {
           <a
             href={repo.url}
             target='_blank'
+            rel='noreferrer'
             className='h5 mb-0 text-decoration-none'
           >
             {repo.name}
@@ -47,15 +48,16 @@ export default function RepoInfo({ repo }) {
         <div className='text-nowrap ms-3'>
           {/* {license} */}
           {repo.homepageUrl && (
-          <a
-            href={repo.homepageUrl}
-            target='_blank'
-            className='px-1 py-1 ms-1 d-inline-block btn btn-primary'
-            style={{ fontSize: '0.75em' }}
-          >
-            LIVE
-          </a>)
-          }
+            <a
+              href={repo.homepageUrl}
+              target='_blank'
+              rel='noreferrer'
+              className='px-1 py-1 ms-1 d-inline-block btn btn-primary'
+              style={{ fontSize: '0.75em' }}
+            >
+              LIVE
+            </a>
+          )}
           <span
             className={
               'px-1 py-1 ms-1 d-inline-block btn ' +
