@@ -1,8 +1,8 @@
 export const githubQuery = (
   pageCount,
-  queryString="react",
-  paginationKeyword,
-  paginationString
+  queryString="",
+  // paginationKeyword,
+  // paginationString
 ) => {
   return {
     query: `
@@ -11,23 +11,20 @@ export const githubQuery = (
         name
       }
       search(
-        first: 20
+        first: ${pageCount}
         query: "${queryString} user:derrickmstrong sort:updated-desc"
         type: REPOSITORY
       ) {
         repositoryCount
-        edges {
-          cursor
-          node {
-            ... on Repository {
-              name
-              description
-              id
-              url
-              viewerSubscription
-              licenseInfo {
-                spdxId
-              }
+        nodes {
+          ... on Repository {
+            name
+            description
+            id
+            url
+            viewerSubscription
+            licenseInfo {
+              spdxId
             }
           }
         }
