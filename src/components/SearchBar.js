@@ -1,4 +1,4 @@
-const Search = ({search, count, total}) => {
+const Search = ({search, onSearchChange, count, onCountChange, total}) => {
   return (
     <div className='d-flex align-items-center bg-light px-3 py-2 small rounded-3'>
       <div className='d-flex align-items-center flex-grow-1'>
@@ -9,7 +9,9 @@ const Search = ({search, count, total}) => {
           id='queryString'
           className='form-control form-control-sm me-2'
           type='text'
-          onChange={e => search(e.target.value)}
+          placeholder='Search by technology'
+          value={search}
+          onChange={e => onSearchChange(e.target.value)}
         />
       </div>
       <div className='d-flex align-items-center'>
@@ -22,11 +24,12 @@ const Search = ({search, count, total}) => {
           type='number'
           min='1'
           max='100'
-          onChange={e => count(e.target.value)}
+          placeholder={count}
+          onChange={e => onCountChange(e.target.value)}
         />
       </div>
       <div>
-        <b className='me-2 text-secondary'>Total: {total}</b>
+        <b className='me-2 text-secondary'>Total Repos: {total}</b>
       </div>
     </div>
   );

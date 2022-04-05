@@ -10,9 +10,9 @@ function App() {
     repoList: [],
     total: 0,
   });
-  const [pageCount, setPageCount] = useState(10)
-  const [queryString, setQueryString] = useState('')
-  
+  const [pageCount, setPageCount] = useState(10);
+  const [queryString, setQueryString] = useState('');
+
   const fetchData = useCallback(() => {
     const queryText = JSON.stringify(githubQuery(pageCount, queryString));
     fetch(githubDB.baseURL, {
@@ -39,7 +39,7 @@ function App() {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
-  
+
   const { name, repoList, total } = state;
 
   return (
@@ -48,13 +48,17 @@ function App() {
         <i className='bi bi-diagram-2-fill'></i>Repos
       </h1>
       <p>{name}</p>
-      <SearchBar search={setQueryString} count={setPageCount} total={total} />
+      <SearchBar
+        search={queryString}
+        count={pageCount}
+        onSearchChange={setQueryString}
+        onCountChange={setPageCount}
+        total={total}
+      />
       {repoList && (
         <ul className='list-group list-group-flush'>
-          {repoList.map((list) => {
-            return (
-              <RepoInfo key={list.id} repo={list} />
-            );
+          {repoList.map(list => {
+            return <RepoInfo key={list.id} repo={list} />;
           })}
         </ul>
       )}

@@ -26,6 +26,12 @@ export const githubQuery = (
             licenseInfo {
               spdxId
             }
+            homepageUrl
+              languages(first: 10) {
+                nodes {
+                  name
+                }
+              }
           }
         }
       }
