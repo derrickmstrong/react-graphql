@@ -13,7 +13,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/derrickmstrong/react-graphql">
-    <!-- <img src="images/logo.png" alt="Logo" width="80" height="80"> -->
+    <img src="src/images/screenshot.png" alt="Screenshot" width="75%">
   </a>
 
 <h2 align="center">React-GraphQL</h2>
