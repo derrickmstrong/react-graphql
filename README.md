@@ -181,7 +181,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Derrick Strong - [@dmstr0ng](https://twitter.com/dmstr0ng) - derrickmstrong@gmail.com
+Derrick Strong - [@dmstr0ng](https://twitter.com/dmstr0ng)
 
 Project Link: [https://github.com/derrickmstrong/react-graphql](https://github.com/derrickmstrong/react-graphql)
 
